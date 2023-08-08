@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('mathuser_id')->unsigned();
-            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('mathuser_id')->nullable()->unsigned();
+            $table->bigInteger('category_id')->nullable()->unsigned();
             $table->string('name',20);
             $table->string('url')->nullable();
             $table->string('text')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();
             $table->softDeletes();

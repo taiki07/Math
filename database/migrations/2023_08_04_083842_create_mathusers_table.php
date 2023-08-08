@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('mathusers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('category_id')->nullable()->unsigned();
             $table->string('name',10);
             $table->string('email');
             $table->string('password',15);

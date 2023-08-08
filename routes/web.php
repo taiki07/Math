@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MathpostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MathpostController::class, 'home']);
+Route::get('/posts/create', [MathpostController::class, 'create']);
+Route::get('/posts/{post}', [MathpostController::class ,'detail']);
+Route::post('/posts', [MathpostController::class, 'store']);
+Route::get('/posts/{post}/edit', [MathpostController::class, 'edit']);
+Route::put('/posts/{post}', [MathpostController::class, 'update']);
+Route::delete('/posts/{post}', [MathpostController::class,'delete']);

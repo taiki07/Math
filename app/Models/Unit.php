@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Unit extends Model
 {
     use HasFactory;
-    public function category()   
+    public function posts()   
     {
-        return $this->hasOne(Category::class);  
+        return $this->hasOne(Post::class);  
+    }
+    
+    public function getByUnit(int $limit_count = 5)
+    {
+         return $this->posts()->with('unit')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }

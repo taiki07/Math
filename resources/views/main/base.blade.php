@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>数学広場</title>
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-
-    <!--  ヘッダー -->
-    <header>
+<x-app-layout>
+    <x-slot name="header">
         <p>～数学広場～</p>
-    </header>
-
-    <!-- メイン -->
+    </x-slot>
     <body>
         <!-- 子ビュー固有のコードを読み込む -->
         @yield('child')
@@ -21,7 +11,7 @@
     <footer>
         <p></p>
     </footer>
-</html>
+</x-app-layout>
 
 <!-- CSS -->
 <style>

@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('mathusers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('category_id')->nullable()->unsigned();
-            $table->string('name',10);
-            $table->string('email');
-            $table->string('password',15);
+            $table->bigInteger('school_id')->nullable()->unsigned();
+            $table->bigInteger('unit_id')->nullable()->unsigned();
+            $table->bigInteger('test_id')->nullable()->unsigned();
+            $table->string('name',10)->nullable();
+            $table->string('email')->nullable();
+            $table->string('password',15)->nullable();
             $table->string('main_text')->nullable();
-            $table->string('grade');
+            $table->string('grade')->nullable();
             $table->string('icon')->nullable();
             $table->string('schedule')->nullable();
             $table->timestamps();

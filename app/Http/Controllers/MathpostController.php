@@ -25,11 +25,6 @@ class MathpostController extends Controller
      //'post'はbladeファイルで使う変数。中身は$postはid=1のPostインスタンス。
     }
     
-    public function create()
-    {
-        return view('main.create');
-    }
-    
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
@@ -54,5 +49,12 @@ class MathpostController extends Controller
     {
         $post->delete();
         return redirect('/');
+    }
+    
+    public function create(School $school, Unit $unit, Test $test)
+    {
+        return view('main.create')->with(['schools' => $school->get()]);
+        return view('main.create')->with(['units' => $unit->get()]);
+        return view('main.create')->with(['tests' => $test->get()]);
     }
 }

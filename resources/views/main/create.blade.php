@@ -1,9 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>数学広場</title>
-    </head>
+<x-app-layout>
     <body>
         <h1>投稿の作成</h1>
         <form action="/posts" method="POST">
@@ -18,10 +13,23 @@
                 <textarea name="post[text]" placeholder="よろしくお願いします。">{{ old('post.text') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.text') }}</p>
             </div>
+            <div class="category">
+                <h2>カテゴリーの選択</h2>
+                <select name="post[school_id]">
+                    @foreach($schools as $school)
+                        <option value="{{ $school->id }}">{{ $school->name }}</option>
+                    @endforeach
+                </select>
+                <select name="post[unit_id]">
+                    @foreach($units as $unit)
+                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="store"/>
         </form>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
     </body>
-</html>
+</x-app-layout>

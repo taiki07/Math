@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
                 TestSeeder::class,
                 UnitSeeder::class,
                 PostSeeder::class,
+                MathuserSeeder::class,
             ]);
     }
 }

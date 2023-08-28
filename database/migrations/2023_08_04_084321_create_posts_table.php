@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('mathuser_id')->nullable()->unsigned();
-            $table->bigInteger('category_id')->nullable()->unsigned();
+            $table->bigInteger('school_id')->nullable()->unsigned();
+            $table->bigInteger('unit_id')->nullable()->unsigned();
+            $table->bigInteger('test_id')->nullable()->unsigned();
             $table->string('name',20);
             $table->string('url')->nullable();
             $table->string('text')->nullable();

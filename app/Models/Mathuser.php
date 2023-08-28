@@ -9,13 +9,13 @@ class Mathuser extends Model
 {
     use HasFactory;
     
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-    
-    public function post()   
+    public function posts()   
     {
         return $this->hasOne(Post::class);  
+    }
+    
+    public function getByMathuser(int $limit_count = 5)
+    {
+         return $this->posts()->with('mathuser')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
